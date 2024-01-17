@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://ddmbox4k2oxde"]
+
+[ext_resource type="PackedScene" uid="uid://bdmdn7manmgny" path="res://LDTK/TestLevel.ldtk" id="1_htgr8"]
+[ext_resource type="PackedScene" uid="uid://b1nxk68hyd0ww" path="res://Characters/Player.tscn" id="2_kcf32"]
+[ext_resource type="PackedScene" uid="uid://bkanwujq5v0gl" path="res://Items/portal.tscn" id="3_3jha7"]
+[ext_resource type="PackedScene" uid="uid://buedoj4yw5o1v" path="res://Helpers/paused_menu.tscn" id="4_p7v8d"]
+[ext_resource type="PackedScene" uid="uid://dwra81qrs3q6n" path="res://Characters/enemy.tscn" id="5_wlwwn"]
+[ext_resource type="PackedScene" uid="uid://ds2o6g1pk30gc" path="res://Items/dash_item.tscn" id="6_vsjqv"]
+[ext_resource type="PackedScene" uid="uid://ddy1e0egjchsr" path="res://HUD/hud.tscn" id="7_aciho"]
+[ext_resource type="PackedScene" uid="uid://nbd0o7j5vhsp" path="res://Items/dialogue_trigger.tscn" id="8_12ddv"]
+[ext_resource type="AudioStream" uid="uid://p6c716dliya7" path="res://Assets/Music/Waltz for Strings.wav" id="9_hxixx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5qk47"]
+size = Vector2(32, 33.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_647bu"]
+size = Vector2(18, 39)
+
+[node name="TestLevel" instance=ExtResource("1_htgr8")]
+
+[node name="HUD" parent="." index="0" instance=ExtResource("7_aciho")]
+
+[node name="IntGrid" parent="Level_0" index="0"]
+position = Vector2(-1, -1)
+
+[node name="Player" parent="." index="2" instance=ExtResource("2_kcf32")]
+position = Vector2(120, 194)
+
+[node name="Camera2D" type="Camera2D" parent="Player" index="9"]
+visible = false
+
+[node name="PausedMenu" parent="Player/Camera2D" index="0" instance=ExtResource("4_p7v8d")]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." index="3"]
+visible = false
+position = Vector2(127, 179)
+collision_layer = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" index="0"]
+position = Vector2(145, -115.75)
+shape = SubResource("RectangleShape2D_5qk47")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="." index="4"]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2" index="0"]
+position = Vector2(247, 64)
+shape = SubResource("RectangleShape2D_647bu")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2/CollisionShape2D" index="0"]
+position = Vector2(50, 0)
+shape = SubResource("RectangleShape2D_647bu")
+
+[node name="portal" parent="." index="5" instance=ExtResource("3_3jha7")]
+position = Vector2(272, -28)
+dialogue_start = "portal_to_dungeon"
+
+[node name="Enemy" parent="." index="7" instance=ExtResource("5_wlwwn")]
+position = Vector2(1046, -87)
+
+[node name="Enemy3" parent="." index="8" instance=ExtResource("5_wlwwn")]
+position = Vector2(1189, -59)
+
+[node name="Dash_item" parent="." index="15" instance=ExtResource("6_vsjqv")]
+position = Vector2(128, 21)
+
+[node name="Node2D" type="Node2D" parent="." index="16"]
+position = Vector2(144, -1003)
+
+[node name="dialogue_trigger" parent="." index="17" instance=ExtResource("8_12ddv")]
+position = Vector2(127, 63)
+dialogue_start = "EndOfTime"
+togglable = true
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="." index="18"]
+stream = ExtResource("9_hxixx")
+autoplay = true

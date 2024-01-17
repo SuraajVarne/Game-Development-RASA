@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://cw8oe3yqtn3h4"]
+
+[ext_resource type="Script" path="res://Items/door.gd" id="1_3nvvd"]
+[ext_resource type="Texture2D" uid="uid://n5ltwict1gmb" path="res://Assets/tiny-RPG-dungeon-files/PNG/environment/tileset.png" id="1_cg7om"]
+[ext_resource type="Resource" uid="uid://c23rytm41s5o7" path="res://Dialogue/main.dialogue" id="2_cx5t2"]
+[ext_resource type="Texture2D" uid="uid://6w88gscrwbqi" path="res://Assets/tiny-RPG-dungeon-files/PNG/environment/tileset-foreground.png" id="4_05dh5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pqvs7"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfcf4"]
+size = Vector2(48, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c385v"]
+size = Vector2(14, 32)
+
+[node name="door" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_3nvvd")
+dialogue_resource = ExtResource("2_cx5t2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_as_relative = false
+texture = ExtResource("1_cg7om")
+region_enabled = true
+region_rect = Rect2(592, 672, 48, 32)
+
+[node name="actionable" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_pqvs7")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionClosed" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yfcf4")
+
+[node name="CollisionOpen" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-17, 0)
+shape = SubResource("RectangleShape2D_c385v")
+disabled = true
+
+[node name="CollisionOpen2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(17, 0)
+shape = SubResource("RectangleShape2D_c385v")
+disabled = true
+
+[node name="DoorTopSprite" type="Sprite2D" parent="."]
+z_index = 2
+z_as_relative = false
+position = Vector2(0, -10)
+texture = ExtResource("4_05dh5")
+region_enabled = true
+region_rect = Rect2(256, 32, 48, 13)
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+z_index = 2
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+expand_mode = 1

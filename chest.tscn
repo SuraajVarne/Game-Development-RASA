@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://1gpjiwd68o60"]
+
+[ext_resource type="Script" path="res://Items/chest.gd" id="1_46xp1"]
+[ext_resource type="Texture2D" uid="uid://6tec73iguy6y" path="res://Assets/tiny-RPG-dungeon-files/PNG/environment/objects-sliced/chest-closed.png" id="1_os5pn"]
+[ext_resource type="Resource" uid="uid://c23rytm41s5o7" path="res://Dialogue/main.dialogue" id="2_bi7ho"]
+[ext_resource type="Texture2D" uid="uid://qungc6l0k0bv" path="res://Helpers/keyboard.png" id="4_5sjox"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_h3gpg"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yfo5o"]
+size = Vector2(16, 16)
+
+[node name="chest" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_46xp1")
+dialogue_resource = ExtResource("2_bi7ho")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_os5pn")
+
+[node name="actionable" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_h3gpg")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yfo5o")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+texture = ExtResource("4_5sjox")
+expand_mode = 1

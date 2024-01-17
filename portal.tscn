@@ -1,0 +1,48 @@
+[gd_scene load_steps=6 format=3 uid="uid://bkanwujq5v0gl"]
+
+[ext_resource type="Script" path="res://Items/portal.gd" id="1_1ux54"]
+[ext_resource type="Texture2D" uid="uid://n5ltwict1gmb" path="res://Assets/tiny-RPG-dungeon-files/PNG/environment/tileset.png" id="1_ilyvr"]
+[ext_resource type="Resource" uid="uid://c23rytm41s5o7" path="res://Dialogue/main.dialogue" id="2_vc58o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8yypw"]
+size = Vector2(80, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gb7yu"]
+size = Vector2(80, 48)
+
+[node name="portal" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_1ux54")
+dialogue_resource = ExtResource("2_vc58o")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_ilyvr")
+region_enabled = true
+region_rect = Rect2(400, 16, 80, 48)
+
+[node name="actionable" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_8yypw")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_gb7yu")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+expand_mode = 1

@@ -1,0 +1,28 @@
+[gd_scene load_steps=6 format=3 uid="uid://bl4y8vh3l368f"]
+
+[ext_resource type="Texture2D" uid="uid://bboctfpis0ih5" path="res://Assets/tiny-RPG-dungeon-files/PNG/sprites/hero-female/idle/hero-female-front-idle.png" id="1_xn2un"]
+[ext_resource type="PackedScene" uid="uid://c1ymfngc8hx18" path="res://Helpers/actionable.tscn" id="2_2vb5i"]
+[ext_resource type="Resource" uid="uid://c23rytm41s5o7" path="res://Dialogue/main.dialogue" id="3_maopl"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_og5in"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rhfuk"]
+radius = 5.0
+height = 18.0
+
+[node name="TestNPC" type="StaticBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_xn2un")
+
+[node name="actionable" parent="." instance=ExtResource("2_2vb5i")]
+dialogue_resource = ExtResource("3_maopl")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="actionable"]
+position = Vector2(0, 3)
+scale = Vector2(1.2, 1.2)
+shape = SubResource("CircleShape2D_og5in")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 4)
+shape = SubResource("CapsuleShape2D_rhfuk")

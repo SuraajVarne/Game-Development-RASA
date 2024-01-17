@@ -1,0 +1,73 @@
+[gd_scene load_steps=7 format=3 uid="uid://cxon28yqj1yiv"]
+
+[ext_resource type="Texture2D" uid="uid://v0lqujp55vix" path="res://Assets/Pixel Art Top Down - Basic/Texture/TX Props.png" id="1_66jou"]
+[ext_resource type="Script" path="res://Items/stone.gd" id="1_aa8e3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itx4g"]
+size = Vector2(2, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xu7du"]
+size = Vector2(24, 2)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hcy3s"]
+size = Vector2(26, 17.875)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l66xk"]
+size = Vector2(13, 33)
+
+[node name="stone" type="CharacterBody2D"]
+z_index = 1
+motion_mode = 1
+script = ExtResource("1_aa8e3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_66jou")
+region_enabled = true
+region_rect = Rect2(226.808, 90.8414, 26.5112, 66.4758)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(0, 3)
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_66jou")
+region_enabled = true
+region_rect = Rect2(269, 109, 7, 43)
+
+[node name="left" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="left" type="CollisionShape2D" parent="left"]
+position = Vector2(-13, 0)
+shape = SubResource("RectangleShape2D_itx4g")
+
+[node name="right" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="right" type="CollisionShape2D" parent="right"]
+position = Vector2(13, 0)
+shape = SubResource("RectangleShape2D_itx4g")
+
+[node name="top" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="top" type="CollisionShape2D" parent="top"]
+position = Vector2(0, -33)
+shape = SubResource("RectangleShape2D_xu7du")
+
+[node name="bottom" type="Area2D" parent="."]
+scale = Vector2(0.5, 0.5)
+
+[node name="bottom" type="CollisionShape2D" parent="bottom"]
+position = Vector2(0, 33)
+shape = SubResource("RectangleShape2D_xu7du")
+
+[node name="stone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="stone"]
+position = Vector2(0, 12.4688)
+scale = Vector2(0.5, 0.5)
+shape = SubResource("RectangleShape2D_hcy3s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_l66xk")

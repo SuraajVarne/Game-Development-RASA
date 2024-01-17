@@ -1,0 +1,46 @@
+[gd_scene load_steps=6 format=3 uid="uid://dclvnk1qxylui"]
+
+[ext_resource type="Script" path="res://Items/crank.gd" id="1_xcxdn"]
+[ext_resource type="Resource" uid="uid://c23rytm41s5o7" path="res://Dialogue/main.dialogue" id="2_cfyau"]
+[ext_resource type="Texture2D" uid="uid://be1l8t8wdiot5" path="res://Assets/tiny-RPG-dungeon-files/PNG/environment/objects-sliced/crank-left.png" id="2_mtkgd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lrmfr"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_roupb"]
+size = Vector2(16, 16)
+
+[node name="crank" type="Area2D"]
+collision_layer = 16
+collision_mask = 16
+script = ExtResource("1_xcxdn")
+dialogue_resource = ExtResource("2_cfyau")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mtkgd")
+
+[node name="actionable" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lrmfr")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_roupb")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_top = -20.0
+offset_right = 4.0
+offset_bottom = -12.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="TextureRect" type="TextureRect" parent="PanelContainer"]
+layout_mode = 2
+expand_mode = 1

@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://b7elmknya8kh3"]
+
+[ext_resource type="Script" path="res://Items/hit_detector.gd" id="1_k023y"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qd16m"]
+size = Vector2(10, 20)
+
+[node name="hit_detector" type="Area2D"]
+collision_mask = 3
+script = ExtResource("1_k023y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_qd16m")

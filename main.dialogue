@@ -1,0 +1,83 @@
+~ testNPC
+
+CodeWitch: [[Hi|Hello|Howdy]], welcome to the first deliverable for Project RASA.
+~ questions
+CodeWitch: If you have any questions, ask away!
+- What happened to the first character?
+	CodeWitch: When the files for the game were lost, most aspects of the game had to be recreated from scratch.
+	CodeWitch: While recreating the code for the character, the sprite of the character was changed.
+	CodeWitch: The reason behing this is that this version of the character had sprites for diagonal movement making the game feel smoother.
+	=> questions
+- Why did you have to reset?
+	CodeWitch: Originally we had planned to store updated builds as releases on Github.
+	CodeWitch: Every time a substantial amount of progress was made, it would be stored as a release.
+	CodeWitch: One day disaster struck and the computer containing the original files was destroyed. With that gone we downloaded the project on github to salvage some of the work.
+	CodeWitch: Only to realize that the folders on Github could not be edited.
+	CodeWitch: When exporting we ended up accidentally encrypting the entire project rendering it useless.
+	CodeWitch: An entire week was spent working to recover those files.
+	=> questions
+- Start again => testNPC
+
+- End the conversation => END
+CodeWitch: For more information see the online documentation.
+
+=> END
+
+~ chest
+It seems like the chest is locked, I should find a key to open it.
+=> END
+
+~ door
+It seems like the door is locked, I should find a key to open it.
+=> END
+
+~ crank_disabled
+You hear a loud rumble as if something magical just happened.
+=> END
+~ crank_enabled
+I already pulled the lever, maybe I should go find out what it did?
+=> END
+~ portal_disabled
+I wonder where this portal leads, maybe I should find a way to turn it on?
+=> END 
+~ portal_enabled
+Would you like to travel through the portal?
+- Yes
+	do Save.save_player()
+	do get_tree().change_scene_to_file("res://Levels/node_2d.tscn")
+- No
+=> END
+~ dash_item
+if Save.isKeyboard:
+	You've obtained the Burst Gun
+	Press shift to dash using the recoil
+	If you right click before firing Rasa will stand their ground
+else:
+	You've obtained the Burst Gun
+	Press the bottom button to dash using the recoil
+	If you press aim before firing Rasa will stand their ground
+	
+=> END
+
+~ portal_to_dungeon
+Would you like to go through the portal?
+- Yes
+	do Save.save_player()
+	do get_tree().change_scene_to_file("res://test_level2.tscn")
+- No
+	=> END
+~ EndOfTime
+You find a hastily written note on the floor
+- Read it
+	To whoever reads this message,
+	First, I must apologize for the damage that I inadvertently caused.
+	If I knew that they would use my inventions for something like this, I would have never created them. But that's in the past now.
+	As atonement, I have spent the rest of my days creating tools like the one you see here.
+	With any hope you can use this to escape and set things right.
+	I will not use the item. My work is done and I have made my choice. This realm will be my grave
+	I only hope that my tools can help set things right.
+	Victor
+	=> END
+- Leave it alone
+	You leave it alone. Better to let the dead rest.
+	=> END
