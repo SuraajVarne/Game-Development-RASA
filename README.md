@@ -11,10 +11,10 @@ Interactive Menus: Improved user navigation efficiency with interactive menus an
 Enhanced Player Agility: Integrated dynamic triple-dash mechanics for improved player agility and control.
 Dynamic Camera: Achieved 98% accuracy in player tracking with dynamic camera mechanics.
 How to Play:
-Download the game from itch.io.
+Download the game from itch.io- https://daybreakdev.itch.io/project-rasa-demo/download/uAIC7fLS3Ly1eRFZkMVihHTDsgXolDG4KrNNLDGX
 Unzip the downloaded file.
 Run the executable file to start playing.
-Watch the Demo:
+Watch the Demo: https://www.youtube.com/watch?v=tHvJ69JC56I 
 Check out the gameplay demo on YouTube.
 
 Contribution:
@@ -26,6 +26,5 @@ Scope:
 The current version is a demo developed within a single semester.
 Future plans include expanding the city, replacing free assets with self-made ones, and potentially adding a crafting system.
 Feedback and Support:
-We welcome your feedback! Feel free to create issues or reach out via [email/other communication channels].
 
 Enjoy your adventure in Project Rasa!
