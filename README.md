@@ -1,13 +1,13 @@
 # Project Rasa - Steampunk Adventure 
 
-## Group Members: 
+## Group Members
 Joey M, Julian K, Deakon W, Mattew S, and Suraj S.  
 
 ## Introduction 
 
 Welcome to Project Rasa, a captivating 2D Metroidvania adventure set in the remnants of the once-thriving steampunk city, Perpetua.
 
-## Features:
+## Features
 
 
 Unique Gameplay Mechanics: Enjoy a top-down action experience with mechanics inspired by both classic and modern Zelda games.
@@ -18,20 +18,20 @@ Interactive Menus: Improved user navigation efficiency with interactive menus an
 Enhanced Player Agility: Integrated dynamic triple-dash mechanics for improved player agility and control.
 Dynamic Camera: Achieved 98% accuracy in player tracking with dynamic camera mechanics.
 
-## How to Play:
+## How to Play
 
 
 Download the game from itch.io- https://daybreakdev.itch.io/project-rasa-demo/download/uAIC7fLS3Ly1eRFZkMVihHTDsgXolDG4KrNNLDGX
 Unzip the downloaded file.
 Run the executable file to start playing.
 
-## Watch the Demo:
+## Watch the Demo
 
 
 https://www.youtube.com/watch?v=tHvJ69JC56I 
 Check out the gameplay demo on YouTube.
 
-## Contribution:
+## Contribution
 
 
 Contributed to developing interactive menus and captivating intro scenes.
